@@ -24,10 +24,4 @@
     <ProjectReference Include="..\AdventOfCode2021\AdventOfCode2021.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="Day1\Input1.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
