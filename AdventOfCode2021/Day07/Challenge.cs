@@ -33,7 +33,7 @@ public class Challenge
 
     public int CalculateOptimalPosition(bool expensiveMode)
     {
-        Range range = StartingRange;
+        var range = StartingRange;
         while (range.Start.Value != range.End.Value)
         {
             range = ReduceRange(range, expensiveMode);
@@ -44,9 +44,9 @@ public class Challenge
 
     public Range ReduceRange(Range range, bool expensiveMode)
     {
-        IEnumerable<int> measumentPoints = GetMeasurementPoints(range);
+        var measumentPoints = GetMeasurementPoints(range);
 
-        IEnumerable<(int position, int fuelConsuption)>? measurements = measumentPoints.Select(x => (position: x, fuelConsuption: CalculateFuelForMoveToPosition(x, expensiveMode)));
+        var measurements = measumentPoints.Select(x => (position: x, fuelConsuption: CalculateFuelForMoveToPosition(x, expensiveMode)));
 
         if(range.End.Value - range.Start.Value <= 5)
         {
@@ -74,7 +74,7 @@ public class Challenge
             measurementInterval = 1;
         }
 
-        for (int i = 0; true; i++)
+        for (var i = 0; true; i++)
         {
             var newMeasurementPoint = minRange + (i * measurementInterval);
 

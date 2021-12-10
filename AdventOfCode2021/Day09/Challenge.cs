@@ -22,10 +22,10 @@ public class Challenge
 
         var points = new List<Point>();
 
-        for (int y = 0; y < values.Count; y++)
+        for (var y = 0; y < values.Count; y++)
         {
             var row = values.ElementAt(y);
-            for (int x = 0; x < row.Count; x++)
+            for (var x = 0; x < row.Count; x++)
             {
                 points.Add(new Point(x,y,row[x]));
             }
@@ -49,15 +49,15 @@ public class Challenge
 
         var basinNumbers = Points.Where(x => x.Value != 9).ToList();
 
-        for (int y = 0; y < basins.Count; y++)
+        for (var y = 0; y < basins.Count; y++)
         {
             var basin = basins.ElementAt(y);
-            for (int i = 0; i < basin.Count; i++)
+            for (var i = 0; i < basin.Count; i++)
             {
                 var adjacentPoints = basinNumbers.Where(x => basin.ElementAt(i).IsAdjacent(x));
                 basin.AddRange(adjacentPoints);
 
-                for (int x = 0; x < adjacentPoints.Count(); x++)
+                for (var x = 0; x < adjacentPoints.Count(); x++)
                 {
                     var adjacentPoint = adjacentPoints.ElementAt(x);
                     basinNumbers.Remove(adjacentPoint);
@@ -71,7 +71,7 @@ public class Challenge
 
     public int CalculateResultPart1()
     {
-        List<Point> lowPoints = GetLowPoints();
+        var lowPoints = GetLowPoints();
 
         return lowPoints.Select(x => x.Value + 1).Sum();
     }

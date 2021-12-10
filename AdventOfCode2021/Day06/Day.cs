@@ -15,7 +15,7 @@ public class Day
 
     public Day(IEnumerable<LanternfishColony> newColonies)
     {
-        this.LanternfishColonies = newColonies.ToList();
+        LanternfishColonies = newColonies.ToList();
     }
 
     private static IEnumerable<LanternfishColony> ParseToLanternfishColonies(IEnumerable<int> startingDay)

@@ -25,7 +25,7 @@ public class Challenge
     {
         var currentDay = Start;
 
-        for (int i = 0; i < maxDays; i++)
+        for (var i = 0; i < maxDays; i++)
         {
             currentDay = currentDay.NextDay();
         }

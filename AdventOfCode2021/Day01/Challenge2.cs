@@ -23,7 +23,7 @@ public class Challenge2
     {
         var numberOfIncreasedDepths = 0;
 
-        for (int i = 0; i < Depths.Count-3; i++)
+        for (var i = 0; i < Depths.Count-3; i++)
         {
             var comparisonA = Depths.GetRange(i, 3).Sum();
             var comparisonB = Depths.GetRange(i+1, 3).Sum();

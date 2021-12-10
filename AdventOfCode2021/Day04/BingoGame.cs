@@ -33,7 +33,7 @@ public class BingoGame
     {
         var cardsToCalculate = Cards;
 
-        for (int i = 0; i < Draws.Count; i++)
+        for (var i = 0; i < Draws.Count; i++)
         {
             AddDrawToCards(Draws.ElementAt(i));
             var winningGames = Cards.Where(x => x.IsGameWinning()).ToList();
@@ -45,7 +45,7 @@ public class BingoGame
 
             if (cardsToCalculate.Count > 1 && winningGames.Count > 0)
             {
-                for (int y = 0; y < winningGames.Count; y++)
+                for (var y = 0; y < winningGames.Count; y++)
                 {
                     cardsToCalculate.Remove(winningGames.ElementAt(y));
                 }
@@ -64,7 +64,7 @@ public class BingoGame
     {
         var cardsToCalculate = Cards;
 
-        for (int i = 0; i < Draws.Count; i++)
+        for (var i = 0; i < Draws.Count; i++)
         {
             AddDrawToCards(Draws.ElementAt(i));
             var winningGame = cardsToCalculate.Where(x => x.IsGameWinning());

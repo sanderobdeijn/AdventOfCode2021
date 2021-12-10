@@ -25,7 +25,7 @@ public class Challenge
     {
         var bitsMatrix = new List<char>[diagnosticReports.First().Length];
 
-        for (int i = 0; i < bitsMatrix.Length; i++)
+        for (var i = 0; i < bitsMatrix.Length; i++)
         {
             bitsMatrix[i] = new List<char>();
         }
@@ -34,7 +34,7 @@ public class Challenge
         {
             var diagnosticReportArray = diagnosticReport.ToArray();
 
-            for (int i = 0; i < diagnosticReport.Length; i++)
+            for (var i = 0; i < diagnosticReport.Length; i++)
             {
                 bitsMatrix[i].Add(diagnosticReportArray[i]);
             }
@@ -54,7 +54,7 @@ public class Challenge
     {
         var oxygenDiagnosticReports = DiagnosticReports;
 
-        for (int i = 0; i < DiagnosticReports.First().Length; i++)
+        for (var i = 0; i < DiagnosticReports.First().Length; i++)
         {
             var bitsGroupedByPosition = GetBitsGroupedByPosition(oxygenDiagnosticReports);
             var mostCommonBits = GetMostCommonBits(bitsGroupedByPosition);
@@ -80,7 +80,7 @@ public class Challenge
     {
         var oxygenDiagnosticReports = DiagnosticReports;
 
-        for (int i = 0; i < DiagnosticReports.First().Length; i++)
+        for (var i = 0; i < DiagnosticReports.First().Length; i++)
         {
             var bitsGroupedByPosition = GetBitsGroupedByPosition(oxygenDiagnosticReports);
             var leastCommonBits = GetLeastCommonBits(bitsGroupedByPosition);

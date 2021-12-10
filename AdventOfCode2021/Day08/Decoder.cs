@@ -45,14 +45,14 @@ public class Decoder
 
     private static string Get2Signal(List<string> inputSignalPatterns, Dictionary<string, string> signalPatterns)
     {
-        string differenceBetween1And4 = GetDifferenceBetween1And4(signalPatterns);
+        var differenceBetween1And4 = GetDifferenceBetween1And4(signalPatterns);
 
         return inputSignalPatterns.Where(x => x.Length == 5).First(x => !IsSignalContainedInSignal(differenceBetween1And4, x) && !IsSignalContainedInSignal(signalPatterns.First(x => x.Value == "1").Key, x));
     }
 
     private static string Get5Signal(List<string> inputSignalPatterns, Dictionary<string, string> signalPatterns)
     {
-        string differenceBetween1And4 = GetDifferenceBetween1And4(signalPatterns);
+        var differenceBetween1And4 = GetDifferenceBetween1And4(signalPatterns);
 
         return inputSignalPatterns.Where(x => x.Length == 5).First(x => IsSignalContainedInSignal(differenceBetween1And4, x));
     }
@@ -61,7 +61,7 @@ public class Decoder
     {
         var differenceBetween1And4 = signalPatterns.First(x => x.Value == "4").Key;
 
-        foreach (char c in signalPatterns.First(x => x.Value == "1").Key)
+        foreach (var c in signalPatterns.First(x => x.Value == "1").Key)
         {
             differenceBetween1And4 = differenceBetween1And4.Replace(c.ToString(), string.Empty);
         }

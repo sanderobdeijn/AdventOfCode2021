@@ -23,7 +23,7 @@ public class Challenge1
     {
         var numberOfIncreasedDepths = 0;
 
-        for (int i = 0; i < Depths.Count-1; i++)
+        for (var i = 0; i < Depths.Count-1; i++)
         {
             var comparisonA = Depths.ElementAt(i);
             var comparisonB = Depths.ElementAt(i+1);

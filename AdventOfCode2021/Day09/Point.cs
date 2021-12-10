@@ -3,13 +3,13 @@ public record class Point(int X,int Y, int Value)
 {
     public bool IsAdjacent(Point point)
     {
-        if (this.X == point.X)
+        if (X == point.X)
         {
-            return Math.Abs(this.Y - point.Y) == 1;
+            return Math.Abs(Y - point.Y) == 1;
         }
-        if (this.Y == point.Y)
+        if (Y == point.Y)
         {
-            return Math.Abs(this.X - point.X) == 1;
+            return Math.Abs(X - point.X) == 1;
         }
 
         return false;
@@ -17,6 +17,6 @@ public record class Point(int X,int Y, int Value)
 
     public bool IsPointLowerThanAdjacentPoints(IEnumerable<Point> AdjacentPoints)
     {
-        return this.Value < AdjacentPoints.Min(p => p.Value);
+        return Value < AdjacentPoints.Min(p => p.Value);
     }
 }

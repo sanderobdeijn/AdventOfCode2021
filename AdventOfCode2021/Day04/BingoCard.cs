@@ -24,7 +24,7 @@
         {
             var numbersByColumn = new List<List<int>>();
 
-            for (int i = 0; i < 5; i++)
+            for (var i = 0; i < 5; i++)
             {
                 numbersByColumn.Add(numbersByRow.Select(x => x.ElementAt(i)).ToList());
             }

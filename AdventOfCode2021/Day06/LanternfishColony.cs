@@ -25,12 +25,12 @@
             {
                 return new List<LanternfishColony>() 
                 { 
-                    new LanternfishColony(8, this.Count),
-                    new LanternfishColony(6, this.Count)
+                    new LanternfishColony(8, Count),
+                    new LanternfishColony(6, Count)
                 };
             }
 
-            return new List<LanternfishColony>() { new LanternfishColony(this.DaysUntilReproduction - 1, this.Count) };
+            return new List<LanternfishColony>() { new LanternfishColony(DaysUntilReproduction - 1, Count) };
         }
     }
 }

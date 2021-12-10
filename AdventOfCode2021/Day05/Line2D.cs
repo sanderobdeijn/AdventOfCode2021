@@ -16,13 +16,13 @@ public class Line2D
     {
         if (IsHorizontal)
         {
-            IEnumerable<int> allXValues = GetLinearValues(Point1.X, Point2.X);
+            var allXValues = GetLinearValues(Point1.X, Point2.X);
             return allXValues.Select(x => new Point2D(x, Point1.Y));
         }
 
         if (IsVertical)
         {
-            IEnumerable<int> allXValues = GetLinearValues(Point1.Y, Point2.Y);
+            var allXValues = GetLinearValues(Point1.Y, Point2.Y);
 
             return allXValues.Select(y => new Point2D(Point1.X, y));
         }
@@ -42,7 +42,7 @@ public class Line2D
 
         var diagonalPoints = new List<Point2D>();
 
-        for (int i = 0; i < allXValues.Length; i++)
+        for (var i = 0; i < allXValues.Length; i++)
         {
             diagonalPoints.Add(new Point2D(allXValues[i], allYValues[i]));
         }
@@ -65,9 +65,9 @@ public class Line2D
         return allXValues.Reverse();
     }
 
-    public bool IsHorizontal { get => Point1.Y == Point2.Y; }
+    public bool IsHorizontal => Point1.Y == Point2.Y;
 
-    public bool IsVertical { get => Point1.X == Point2.X; }
+    public bool IsVertical => Point1.X == Point2.X;
 
-    public bool IsDiagonal { get => Math.Abs(Point1.X - Point2.X) == Math.Abs(Point1.Y - Point2.Y); }
+    public bool IsDiagonal => Math.Abs(Point1.X - Point2.X) == Math.Abs(Point1.Y - Point2.Y);
 }
