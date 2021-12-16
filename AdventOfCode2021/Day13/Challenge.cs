@@ -36,9 +36,9 @@ public class Challenge
 
         var sb = new StringBuilder();
 
-        for (int i = 0; i < foldedSheet.Dots.GetColumn(0).Count(); i++)
+        for (var i = 0; i < foldedSheet.Dots.GetColumn(0).Count(); i++)
         {
-            sb.AppendLine(string.Join(String.Empty, foldedSheet.Dots.GetRow(i).Select(x => x ? "X" : ".")));
+            sb.AppendLine(string.Join(string.Empty, foldedSheet.Dots.GetRow(i).Select(x => x ? "X" : ".")));
         }
 
         return sb.ToString();
@@ -51,7 +51,7 @@ public class Challenge
         return foldedSheet.NumberOfDots;
     }
 
-    private Sheet FoldSheetAccordingToInstruction(Sheet sheet, string foldingInstruction)
+    private static Sheet FoldSheetAccordingToInstruction(Sheet sheet, string foldingInstruction)
     {
         var direction = foldingInstruction.Split('=').First();
         var position = int.Parse(foldingInstruction.Split('=').Last());
