@@ -96,17 +96,22 @@ public class Packet
         };
     }
 
-    private static long GetValue(string binary, PacketTypeEnum packetType, List<Packet> subPackets)
+    private static long GetValue(string binary, PacketTypeEnum packetType, List<Packet>? subPackets)
     {
+        if (packetType != PacketTypeEnum.Literal && subPackets == null)
+        {
+            throw new InvalidOperationException();
+        }
+
         return packetType switch {
-            PacketTypeEnum.Sum => subPackets.Sum(x => x.Value),
-            PacketTypeEnum.Product => subPackets.Select(x => x.Value).Aggregate((a, b) => a * b),
-            PacketTypeEnum.Mininum => subPackets.Min(x => x.Value),
-            PacketTypeEnum.Maximum => subPackets.Max(x => x.Value),
+            PacketTypeEnum.Sum => subPackets!.Sum(x => x.Value),
+            PacketTypeEnum.Product => subPackets!.Select(x => x.Value).Aggregate((a, b) => a * b),
+            PacketTypeEnum.Mininum => subPackets!.Min(x => x.Value),
+            PacketTypeEnum.Maximum => subPackets!.Max(x => x.Value),
             PacketTypeEnum.Literal => GetLiteralValue(binary),
-            PacketTypeEnum.GreaterThan => subPackets.First().Value > subPackets.Last().Value ? 1 : 0,
-            PacketTypeEnum.LesserThan => subPackets.First().Value < subPackets.Last().Value ? 1 : 0,
-            PacketTypeEnum.Equal => subPackets.First().Value == subPackets.Last().Value ? 1 : 0,
+            PacketTypeEnum.GreaterThan => subPackets!.First().Value > subPackets!.Last().Value ? 1 : 0,
+            PacketTypeEnum.LesserThan => subPackets!.First().Value < subPackets!.Last().Value ? 1 : 0,
+            PacketTypeEnum.Equal => subPackets!.First().Value == subPackets!.Last().Value ? 1 : 0,
             _ => throw new InvalidOperationException(),
         };
     }

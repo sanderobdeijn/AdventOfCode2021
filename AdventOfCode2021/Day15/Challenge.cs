@@ -60,7 +60,7 @@ public class Challenge
 
     public int SolvePart1()
     {
-        var graph = LoadDijkstraGraph(RiskLevels, 1);
+        var graph = LoadDijkstraGraph(RiskLevels);
         var result = graph.Dijkstra(1, (uint)RiskLevels.Length * (uint)RiskLevels[0].Length);
 
         return result.Distance;
@@ -70,7 +70,7 @@ public class Challenge
     {
         var expandedRiskLevels = GetExpandedRiskLevels(RiskLevels);
 
-        var graph = LoadDijkstraGraph(expandedRiskLevels, 5);
+        var graph = LoadDijkstraGraph(expandedRiskLevels);
 
         var result = graph.Dijkstra(1, (uint)expandedRiskLevels.Length * (uint)expandedRiskLevels[0].Length);
 
@@ -82,7 +82,7 @@ public class Challenge
         return (uint)(row * maxSize + col + 1);
     }
 
-    private static Graph<Point, int> LoadDijkstraGraph(int[][] riskLevels, int scale)
+    private static Graph<Point, int> LoadDijkstraGraph(int[][] riskLevels)
     {
         var graph = new Graph<Point, int>();
 
